@@ -4,20 +4,19 @@ import java.io.*;
 import java.awt.*;
 
 public class CalendarImage extends JPanel {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 4858029387148747756L;
 	
-	File imageFile;
-	Image image;
-	Toolkit tool;
+	private File imageFile;
+	private Image image;
+	private Toolkit tool;
 
-	CalendarImage() {
+	public CalendarImage() {
 		tool = getToolkit();
 	}
 
 	public void setImageFile(File f) {
+		
 		imageFile = f;
 		try {
 			image = tool.getImage(imageFile.toURI().toURL());
