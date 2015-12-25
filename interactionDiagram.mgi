@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <CommunicationClass name="NotePad" x="445" y="78"/>
+    <CommunicationClass name="Main" x="27" y="29"/>
+    <CommunicationClass name="CalendarMessage" x="299" y="543"/>
+    <CommunicationClass name="CalendarPad" x="525" y="237">
+        <Association destinationClassName="CalendarMessage"
+            endpointName="calendarMessage" kind="Simple"/>
+        <Communication destinationClassName="CalendarMessage"/>
+    </CommunicationClass>
+    <CommunicationClass name="Clock" x="175" y="92"/>
+    <CommunicationClass name="CalendarImage" x="46" y="424"/>
+    <CommunicationClass name="CalendarWindow" x="40" y="205">
+        <Association destinationClassName="CalendarPad"
+            endpointName="calendarPad" kind="Simple"/>
+        <Association destinationClassName="Clock" endpointName="clock" kind="Simple"/>
+        <Association destinationClassName="CalendarMessage"
+            endpointName="calendarMessage" kind="Simple"/>
+        <Association destinationClassName="NotePad"
+            endpointName="notePad" kind="Simple"/>
+        <Association destinationClassName="CalendarImage"
+            endpointName="calendarImage" kind="Simple"/>
+        <Communication destinationClassName="NotePad"/>
+        <Communication destinationClassName="CalendarMessage"/>
+        <Communication destinationClassName="CalendarPad"/>
+        <Communication destinationClassName="CalendarImage"/>
+    </CommunicationClass>
+</ClassDiagram>

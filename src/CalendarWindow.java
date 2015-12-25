@@ -9,13 +9,14 @@ import java.io.*;
  * 日历管理系统 程序入口
  * 
  */
+@SuppressWarnings("serial")
 public class CalendarWindow extends JFrame implements ActionListener, FocusListener {
-	
-	private static final long serialVersionUID = 8999917219825525119L;
 	
 	private static final String APPLICATION_TITLE = "日志管理" ;
 	
-	private int mYear, mMonth, mDay;
+	int mYear;
+	int mMonth; 
+	int mDay;
 
 	/*为了确保一个月的每一天都显示在“周几”中，用了42个格子*/
 	public static final int CELL_LENGTH = 6 *7;
@@ -37,7 +38,9 @@ public class CalendarWindow extends JFrame implements ActionListener, FocusListe
 	CalendarPad calendarPad = new CalendarPad();
 	NotePad notePad= new NotePad() ;
 	
-	private CalendarImage calendarImage = new CalendarImage() ;
+	CalendarImage calendarImage = new CalendarImage() ;
+	/*那个钟*/
+	Clock clock= new Clock() ;
 	/*显示“年”和“月”的编辑文本框(不过这里给他们设置成了不可编辑)*/
 	private JTextField jTF_showYear, jTF_showMonth;
 	/*日历中每个月的具体的日子*/
@@ -45,27 +48,24 @@ public class CalendarWindow extends JFrame implements ActionListener, FocusListe
 	
 	private JTextField cacheFocusJTextField = null ;
 	
-	/*那个钟*/
-	Clock clock= new Clock() ;
-	
 	/*顶上的*/
-	JPanel jP_north = new JPanel() ;
+	private JPanel jP_north = new JPanel() ;
 	/*底部的*/
-	JPanel jP_south = new JPanel() ;
+	private JPanel jP_south = new JPanel() ;
 	
-	JButton nextYear = new JButton(NEXT_YEAR);
-	JButton previousYear = new JButton(PREVIOUS_YEAR);
-	JButton nextMonth = new JButton(NEXT_MONTH);
-	JButton previousMonth = new JButton(PREVIOUS_MONTH);
+	private JButton nextYear = new JButton(NEXT_YEAR);
+	private JButton previousYear = new JButton(PREVIOUS_YEAR);
+	private JButton nextMonth = new JButton(NEXT_MONTH);
+	private JButton previousMonth = new JButton(PREVIOUS_MONTH);
 	
-	JButton saveDailyRecord = new JButton(SAVE_DAILYRECORD);
-	JButton deleteDailyRecord = new JButton(DELETE_DAILYRECORD);
-	JButton readDailyRecord = new JButton(READ_DAILYRECORD);
+	private JButton saveDailyRecord = new JButton(SAVE_DAILYRECORD);
+	private JButton deleteDailyRecord = new JButton(DELETE_DAILYRECORD);
+	private JButton readDailyRecord = new JButton(READ_DAILYRECORD);
 	
-	File file_directory = new File( DAILYRECORD_DIR ) ;
+	private File file_directory = new File( DAILYRECORD_DIR ) ;
 	
-	Color backgroundColor = Color.white ;
-	Color foregroundColor = Color.gray ;
+	private Color backgroundColor = Color.white ;
+	private Color foregroundColor = Color.gray ;
 
 	public CalendarWindow() {
 

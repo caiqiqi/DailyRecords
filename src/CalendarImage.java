@@ -3,9 +3,8 @@ import javax.swing.*;
 import java.io.*;
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class CalendarImage extends JPanel {
-	
-	private static final long serialVersionUID = 4858029387148747756L;
 	
 	private File imageFile;
 	private Image image;

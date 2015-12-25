@@ -6,22 +6,23 @@ import java.awt.*;
  * 左上角显示日期的那个框框
  * 
  */
+@SuppressWarnings("serial")
 public class CalendarPad extends JPanel {
 
-	private static final long serialVersionUID = 865985664708897713L;
-
-	int year, month, day;
+	int year;
+	int month; 
+	int day;
 
 	CalendarMessage calendarMessage;
-	JTextField[] jTF_showDay;
+	private JTextField[] jTF_showDay;
 	/* 某一月的每一天用JLabel表示 */
-	JLabel jL_title[];
+	private JLabel jL_title[];
 	/*将下面这个字符串数组信息装进jL_title[]里面，然后又装进jP_north里面*/
-	String[] dayOfWeek = { "SUN日", "MON一", "TUE二", "WED三", "THU四", "FRI五",
+	private String[] dayOfWeek = { "SUN日", "MON一", "TUE二", "WED三", "THU四", "FRI五",
 			"SAT六" };
 
-	JPanel jP_north = new JPanel();
-	JPanel jP_center = new JPanel();
+	private JPanel jP_north = new JPanel();
+	private JPanel jP_center = new JPanel();
 
 	public CalendarPad() {
 
